@@ -15,9 +15,6 @@ const getAllBooks = async (root) => {
 
     try {
         const response = await getAllBooksFromBooksApi();
-
-        //const books = [{'bookId': '1', 'bookName': 'Java'}];
-    
         return response;
     } catch(error) {
         console.log('error = ' + error);
