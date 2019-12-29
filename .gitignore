@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+build/**/*.xml
+dist/
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# next.js build output
+.next
+
+.vscode
+.vscode/launch.json
+
+*.idea
+/.idea/
+
+#package-lock
+package-lock.json
+
+#test output
+test/results
+!**test/constants/
+!**test/helpers/
+test-report.xml
+
+**/*.idea
+.idea/workspace.xml
+
+.DS_Store

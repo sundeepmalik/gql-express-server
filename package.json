@@ -1,0 +1,59 @@
+{
+  "name": "gql-express-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "^10.14.0",
+    "npm": "^6.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf node_modules/",
+    "clean-install": "npm run clean & npm install",
+    "build": "babel index.js server.js -d dist && babel utils/ -d dist/utils && cp -r src/ dist/src/ && babel src/ -d dist/src",
+    "dev": "cross-env LOG_LEVEL=debug NODE_ENV=local PROJECT_ID=xyz SESSION_COUNT_MAX=5 SESSION_COUNT_MIN=3 SESSION_IDLE_MINUTES=1 SESSION_POOL_CONCURRENCY=3 nodemon --signal SIGTERM --inspect index.js --exec babel-node",
+    "start": "npm run gql-hapi-server && nodemon index.js --exec babel-node",
+    "start:server": "babel-node index.js"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,graphql,graphqls"
+  },
+  "keywords": [],
+  "author": "Sundeep Malik",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-opentracing": "1.4.0",
+    "apollo-server-express": "^2.5.0",
+    "axios": "0.18.1",
+    "body-parser": "1.19.0",
+    "camelcase-keys": "^5.0.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-tools": "^4.0.6",
+    "graphql-import": "^0.6.0",
+    "log4js": "^4.0.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@playlyfe/gql": "^2.6.2",
+    "ajv": "^5.5.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "24.8.0",
+    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.17.5",
+    "rimraf": "^2.6.2"
+  }
+}

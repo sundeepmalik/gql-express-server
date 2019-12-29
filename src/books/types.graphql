@@ -1,0 +1,9 @@
+type Book {
+    bookId: ID
+    bookName: String
+    author: String
+}
+
+type Query {
+    bookList: [Book]
+}

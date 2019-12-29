@@ -1,0 +1,8 @@
+type Course {
+    courseId: ID
+    courseName: String
+}
+
+type Query {
+    courseList: [Course]
+}
