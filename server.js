@@ -46,7 +46,7 @@ const startServer = () => {
                 const queryName = query.definitions[0].selectionSet.selections[0].name.value;
                 const elapsedHrTime = process.hrtime(startHrTime);
                 const elapsedHrTimeInMs = elapsedHrTime[0] * 1000 + elapsedHrTime[1] / 1e6;
-                console.log('query = ' + JSON.stringify(query));
+                //console.log('query = ' + JSON.stringify(query));
                 console.log('queryName = ' + queryName);
                 console.log('elapsedHrTime = ' + elapsedHrTime);
                 console.log('elapsedHrTimeInMs = ' + elapsedHrTimeInMs);
