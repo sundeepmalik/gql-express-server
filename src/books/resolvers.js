@@ -11,6 +11,16 @@ const getAllBooksFromBooksApi = () => request({
     url: `${ booksApiUrl }/books`
 });
 
+const getBookByIdFromBooksApi = (bookId) => request({
+    json: true,
+    method: 'GET',
+    headers: {
+        'X-REQUESTOR-ID': 'GQL-EXPRESS-SERVER'
+    },
+    url: `${ booksApiUrl }/book/bookId/${ bookId }`
+
+});
+
 const getAllBooks = async (root) => {
 
     try {
@@ -22,8 +32,20 @@ const getAllBooks = async (root) => {
     }
 };
 
+const getBookById = async (root, {bookId}) => {
+    try {
+        const response = await getBookByIdFromBooksApi(bookId);
+        console.log('response  ===================== ' + JSON.stringify(response));
+        return response;
+    } catch(error) {
+        console.log('error = ' + error);
+        return error;
+    }
+}
+
 export default {
     Query: {
-        bookList: getAllBooks
+        bookList: getAllBooks,
+        book: getBookById
     }
 };
